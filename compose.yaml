@@ -32,13 +32,3 @@ services:
     volumes:
       - ./validator_keys:/validator_keys
 
-  # nginx:
-  #   image: nginx:latest
-  #   ports:
-  #     - "49201:443"
-  #   volumes:
-  #     - ./nginx/mycertificate.pem:/etc/nginx/ssl/mycertificate.pem
-  #     - ./nginx/mykey.key:/etc/nginx/ssl/mykey.key
-  #     - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-  #   depends_on:
-  #     - web3signer
