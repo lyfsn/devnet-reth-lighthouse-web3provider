@@ -28,19 +28,17 @@ services:
     ports:
       - "49200:9000"
     depends_on:
-      db:
-        condition: service_started
+      - db
     volumes:
       - ./validator_keys:/validator_keys
 
-  nginx:
-    image: nginx:latest
-    ports:
-      - "49201:443"
-    volumes:
-      - ./nginx/mycertificate.pem:/etc/nginx/ssl/mycertificate.pem
-      - ./nginx/mykey.key:/etc/nginx/ssl/mykey.key
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      web3signer:
-        condition: service_started
+  # nginx:
+  #   image: nginx:latest
+  #   ports:
+  #     - "49201:443"
+  #   volumes:
+  #     - ./nginx/mycertificate.pem:/etc/nginx/ssl/mycertificate.pem
+  #     - ./nginx/mykey.key:/etc/nginx/ssl/mykey.key
+  #     - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+  #   depends_on:
+  #     - web3signer
